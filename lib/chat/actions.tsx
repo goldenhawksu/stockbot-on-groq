@@ -42,8 +42,8 @@ interface MutableAIState {
   get: () => AIState
 }
 
-const MODEL = 'gemini-2.5-flash'
-const TOOL_MODEL = 'gemini-2.5-flash'
+const MODEL = 'llama-3.3-70b-versatile'
+const TOOL_MODEL = 'llama-3.3-70b-versatile'
 const GROQ_API_KEY_ENV = process.env.GROQ_API_KEY
 
 type ComparisonSymbolObject = {
@@ -58,7 +58,7 @@ async function generateCaption(
   aiState: MutableAIState
 ): Promise<string> {
   const groq = createOpenAI({
-    baseURL: 'https://api.spdt.work/v1',
+    baseURL: 'https://api.groq.com/openai/v1',
     apiKey: GROQ_API_KEY_ENV
   })
   
@@ -188,7 +188,7 @@ async function submitUserMessage(content: string) {
 
   try {
     const groq = createOpenAI({
-      baseURL: 'https://api.spdt.work/v1',
+      baseURL: 'https://api.groq.com/openai/v1',
       apiKey: GROQ_API_KEY_ENV
     })
 
